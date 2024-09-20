@@ -1,0 +1,70 @@
+@import "abstracts/colors.scss";
+
+.btn {
+  border-radius: 7px;
+  display: block;
+  text-align: center;
+  background-color: #fff;
+  color: #000;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in;
+  width: 77px;
+  height: 32px;
+  font-size: 12px;
+
+  &:hover {
+    background-color: #eeeded;
+  }
+
+  &.success {
+    background-color: $primary-color;
+    background-image: $gradient-bg;
+    color: #fff;
+    transition: background-color 0.2s ease-in, filter 0.2s ease-in;
+
+    &:hover {
+      background-color: $primary-color-dark;
+      filter: brightness(0.95);
+    }
+  }
+  &.danger {
+    background-color: #d22423;
+    color: #fff;
+
+    &:hover {
+      background-color: #b81f1f;
+    }
+  }
+  &.load-more {
+    margin: 20px auto;
+    background-color: #fed831;
+    font-weight: bold;
+    line-height: 45px;
+    width: 120px;
+    max-width: 400px;
+    min-width: 400px;
+    height: 45px;
+    font-size: 16px;
+
+    &:hover {
+      background-color: #ecc517;
+    }
+    @media screen and (max-width: 639px) {
+      line-height: 25px;
+      max-width: 80dvw;
+      min-width: 80dvw;
+      height: 35px;
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: #ccc;
+    color: #fff;
+
+    &:hover {
+      background-color: #d3d3d3;
+    }
+  }
+}

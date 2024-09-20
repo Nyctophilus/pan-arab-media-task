@@ -1,0 +1,278 @@
+@import "burger-menu.scss";
+
+header {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  box-shadow: 0px 1px 10px 0px $shadow-foreground-color;
+  position: relative;
+  min-height: 80px;
+
+  @media only screen and (max-width: 1222px) {
+    min-height: 50px;
+    background-color: $primary-color;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+
+    .header__burger {
+      display: none;
+
+      & span {
+        width: 15px;
+        height: 2px;
+        position: relative;
+        background: #fff;
+        -webkit-transition: 0.3s;
+        transition: 0.3s;
+      }
+
+      & span::after {
+        content: "";
+        width: 25px;
+        position: absolute;
+        top: -10px;
+        height: 2px;
+        background: #fff;
+        -webkit-transition: 0.2s;
+        transition: 0.2s;
+      }
+
+      & span::before {
+        content: "";
+        width: 25px;
+        position: absolute;
+        bottom: -10px;
+        height: 2px;
+        background: #fff;
+        border-radius: 5px;
+        -webkit-transition: 0.2s;
+        transition: 0.2s;
+      }
+
+      @media only screen and (max-width: 1222px) {
+        & {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          right: -10px;
+          width: 70px;
+        }
+      }
+
+      &.active span {
+        background: 0 0;
+        width: 0;
+      }
+
+      &.active span::before {
+        -webkit-transform: rotate(45deg);
+        transform: rotate(45deg);
+        bottom: 0;
+        right: 0;
+        width: 25px;
+      }
+
+      &.active span::after {
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        top: 0;
+        right: 0;
+        width: 25px;
+      }
+    }
+
+    .header__logo {
+      padding: 23px 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.3s;
+      background-color: $primary-color;
+      position: relative;
+      z-index: 1;
+
+      &:hover {
+        background-image: $gradient-bg;
+      }
+
+      & img {
+        height: 35px;
+        width: 134px;
+        min-width: 120px;
+      }
+
+      @media only screen and (max-width: 1222px) {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        width: fit-content;
+        padding: 12px;
+        height: 100%;
+
+        & img {
+          height: 30px;
+          width: 107px;
+        }
+      }
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      margin: 0;
+      padding: 0;
+
+      @media only screen and (max-width: 1222px) {
+        display: none;
+      }
+
+      li {
+        margin-right: 50px;
+
+        a {
+          white-space: nowrap;
+          transition: 0.3s;
+          position: relative;
+          z-index: 1;
+          font-weight: 700;
+
+          a:hover {
+            color: $primary-color;
+          }
+        }
+      }
+    }
+  }
+
+  .header-right {
+    display: flex;
+    gap: 24px;
+
+    @media screen and (max-width: 1222px) {
+      gap: 10px;
+    }
+
+    .search {
+      display: flex;
+      flex-direction: row-reverse;
+
+      .search-btn {
+        cursor: pointer;
+        height: 100%;
+        border: none;
+        padding: 0 50px;
+        background-color: $shadow-color;
+
+        @media screen and (max-width: 1222px) {
+          padding: 0 20px;
+          background-color: #fff;
+        }
+
+        svg {
+          width: 22px;
+          height: 22px;
+          fill: $primary-color;
+        }
+      }
+
+      .search-switch {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        transition: 0.5s;
+        overflow: hidden;
+        max-width: 0;
+        height: 100%;
+        background-color: $shadow-color;
+        padding: 0 20px;
+        opacity: 0;
+
+        @media screen and (max-width: 1222px) {
+          padding: 0 25px 0 20px;
+        }
+
+        svg.close-icon {
+          display: block;
+          width: 20px;
+          height: 20px;
+          fill: $primary-color;
+          cursor: pointer;
+          margin-right: 6px;
+        }
+
+        .search-bar {
+          background-color: #fff;
+          padding: 0 8px;
+          border-radius: 5px;
+          box-shadow: 0 0 0 1px $shadow-color;
+          display: flex;
+          flex-direction: row-reverse;
+          align-items: center;
+          row-gap: 4px;
+
+          svg {
+            display: block;
+            width: 15px;
+            height: 15px;
+            fill: $shadow-foreground-color;
+            cursor: pointer;
+          }
+
+          input {
+            outline: 0;
+            margin: 0;
+            border: none;
+            height: 35px;
+            padding: 0;
+            font-size: 12px;
+
+            &::placeholder {
+              color: $shadow-foreground-color;
+            }
+          }
+        }
+      }
+
+      &.active {
+        .search-btn {
+          display: none;
+        }
+
+        .search-switch {
+          max-width: 300px;
+          opacity: 1;
+        }
+      }
+    }
+
+    .most-read {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 4px 20px;
+      background-color: #fff;
+      border-radius: 4px;
+      border: 1px solid $shadow-color;
+      align-self: center;
+
+      position: relative;
+      z-index: 1;
+
+      p {
+        white-space: nowrap;
+      }
+
+      @media screen and (max-width: 1222px) {
+        display: none;
+      }
+    }
+  }
+}

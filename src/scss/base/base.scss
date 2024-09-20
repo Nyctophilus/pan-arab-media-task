@@ -1,0 +1,58 @@
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  font-size: 16px;
+  line-height: 28px;
+}
+
+@media only screen and (max-width: 1024px) {
+  html {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@font-face {
+  font-family: almarai;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(/src/assets/font/Almarai-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: almarai-b;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(/src/assets/font/Almarai-Regular.woff2) format("woff2");
+}
+
+body {
+  font-family: almarai, "sans-serif";
+  padding: 0;
+  margin: 0;
+  background: #f2f3f5;
+}
+.container {
+  max-width: calc(100% - 160px);
+  margin-left: auto;
+  margin-right: auto;
+  padding-right: 10px;
+  padding-left: 10px;
+
+  @media only screen and (max-width: 768px) {
+    padding-top: 10px;
+  }
+
+  @media only screen and (max-width: 1279px) {
+    max-width: none;
+  }
+}
