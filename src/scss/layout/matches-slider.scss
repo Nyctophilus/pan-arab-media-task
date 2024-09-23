@@ -22,6 +22,7 @@
         height: 8px;
         background-color: #ffff;
         border-radius: 50%;
+        will-change: transform;
         animation: pulse 3s ease-in-out infinite;
       }
     }

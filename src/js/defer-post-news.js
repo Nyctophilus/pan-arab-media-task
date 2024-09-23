@@ -242,6 +242,14 @@ loadMoreBtn.addEventListener("click", () => {
 
 createNews(0, paginationCount);
 
+
+
+// clear listeners
+window.addEventListener("beforeunload", () => {
+  removeAllListeners(loadMoreBtn, "click");
+});
+
+
 // functions
 function generateNews(title, src, imgAlt, href, tag, views, time) {
   const graphIcon = `<svg
@@ -380,6 +388,7 @@ function generateNews(title, src, imgAlt, href, tag, views, time) {
   return doc.body.firstChild;
 }
 function createNews(s, e) {
+  const newsFragment = document.createDocumentFragment();
   news.slice(s, e).forEach((n) => {
     const newPiece = generateNews(
       n.title,
@@ -391,6 +400,9 @@ function createNews(s, e) {
       n.time
     );
 
-    newsWrapper.appendChild(newPiece);
+    newsFragment.appendChild(newPiece);
   });
+
+  newsWrapper.appendChild(newsFragment);
+
 }

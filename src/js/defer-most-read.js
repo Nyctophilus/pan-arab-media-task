@@ -31,14 +31,18 @@ const mostReads = [
   },
 ];
 
-const readsWrapper = document.querySelector(".most-read__pieces");
+const readsFragment = document.createDocumentFragment();
 
 mostReads.forEach((n) => {
   const newPiece = generateReads(n.number, n.title, n.href, n.tag);
 
-  readsWrapper.appendChild(newPiece);
+  readsFragment.appendChild(newPiece);
 });
 
+document.querySelector(".most-read__pieces").appendChild(readsFragment);
+
+
+// functions
 function generateReads(number, title, href, tag) {
   const newsTemplate = `<li class="most-read__item">
               <a href="${href}" title="${title}">

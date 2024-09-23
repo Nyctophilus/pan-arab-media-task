@@ -4,4 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
   ddmToggler.addEventListener("click", () => {
     ddmToggler.classList.toggle("active");
   });
+
+  window.addEventListener("beforeunload", () => {
+    removeAllListeners(ddmToggler, "click");
+  });
 });
+
+

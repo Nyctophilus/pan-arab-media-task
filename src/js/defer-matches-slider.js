@@ -130,13 +130,6 @@ const slideWidth =
   window.innerWidth < 768 ? 100 : window.innerWidth < 1223 ? 50 : 25;
 const tail = window.innerWidth < 768 ? 1 : window.innerWidth < 1223 ? 2 : 4;
 
-function updateSlider() {
-  prevBtn.disabled = currentIndex === 0;
-  nextBtn.disabled = currentIndex === matches.length - tail;
-
-  slidesHolder.style.transform = `translateX(${currentIndex * slideWidth}%)`;
-}
-
 prevBtn.addEventListener("click", () => {
   if (currentIndex > 0) {
     prevBtn.disabled = false;
@@ -153,41 +146,44 @@ nextBtn.addEventListener("click", () => {
   }
 });
 
-const handleDrag = (e) => {
-  const clientX = e.clientX || e.touches[0].clientX;
-  const swipeDistance = clientX - startX;
-  const swipeAmount = Math.abs(swipeDistance);
-
-  if (swipeAmount > 50) {
-    if (swipeDistance > 0) {
-      nextBtn.click();
-    } else {
-      prevBtn.click();
-    }
-  }
-};
-
 let startX;
 
 slidesHolder.addEventListener("touchstart", (e) => {
   startX = e.touches[0].clientX;
-  slidesHolder.addEventListener("touchmove", handleDrag);
-  slidesHolder.addEventListener("touchend", handleDrag);
+  slidesHolder.addEventListener("touchmove", throttle(handleDrag, 100));
+  slidesHolder.addEventListener("touchend", throttle(handleDrag, 100));
 });
 
 slidesHolder.addEventListener("mousedown", (e) => {
   startX = e.clientX;
-  slidesHolder.addEventListener("mousemove", handleDrag);
-  slidesHolder.addEventListener("mouseup", handleDrag);
-  slidesHolder.addEventListener("mouseleave", handleDrag);
+  slidesHolder.addEventListener("mousemove", throttle(handleDrag, 100));
+  slidesHolder.addEventListener("mouseup", throttle(handleDrag, 100));
+  slidesHolder.addEventListener("mouseleave", throttle(handleDrag, 100));
 });
 
+// clear listeners
+window.addEventListener("beforeunload", () => {
+  removeAllListeners(prevBtn, "click");
+  removeAllListeners(nextBtn, "click");
+  removeAllListeners(slidesHolder, "touchstart");
+  removeAllListeners(slidesHolder, "touchmove");
+  removeAllListeners(slidesHolder, "touchend");
+  removeAllListeners(slidesHolder, "mousedown");
+  removeAllListeners(slidesHolder, "mousemove");
+  removeAllListeners(slidesHolder, "mouseup");
+  removeAllListeners(slidesHolder, "mouseleave");
+});
+
+// create matches
+const matchsFragment = document.createDocumentFragment();
 matches.forEach((match) => {
   const newMatch = generateMatchTemplate(match);
 
-  slidesHolder.appendChild(newMatch);
+  matchsFragment.appendChild(newMatch);
 });
+slidesHolder.appendChild(matchsFragment);
 
+// functions
 function generateMatchTemplate(match) {
   const template = `<div class="slide">
 <a title="${match.comp_title}" href="${match.comp_href}">
@@ -212,3 +208,22 @@ function generateMatchTemplate(match) {
   const doc = parser.parseFromString(template, "text/html");
   return doc.body.firstChild;
 }
+function updateSlider() {
+  prevBtn.disabled = currentIndex === 0;
+  nextBtn.disabled = currentIndex === matches.length - tail;
+
+  slidesHolder.style.transform = `translateX(${currentIndex * slideWidth}%)`;
+}
+const handleDrag = (e) => {
+  const clientX = e.clientX || e.touches[0].clientX;
+  const swipeDistance = clientX - startX;
+  const swipeAmount = Math.abs(swipeDistance);
+
+  if (swipeAmount > 50) {
+    if (swipeDistance > 0) {
+      nextBtn.click();
+    } else {
+      prevBtn.click();
+    }
+  }
+};
