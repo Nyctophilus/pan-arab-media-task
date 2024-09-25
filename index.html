@@ -61,7 +61,10 @@
       </div>
 
       <section class="header__sidebar-mob">
-        <button class="header__sidebar-close">
+        <button
+        aria-label="close sidebar"
+        title="إغلاق الشريط الجانبي"
+        class="header__sidebar-close">
           <svg xmlns="https://www.w3.org/2000/svg" viewBox="0 0 19.642 19.642">
             <path
               d="M6.343,6.343,23.156,23.156m-16.813,0L23.156,6.343"
@@ -732,13 +735,13 @@
 
     <section class="container matches-slider-wrapper">
       <div class="calender-btns">
-        <button href="/" class="btn danger" title="مباشر">
+        <a href="/" class="btn danger" title="مباشر">
           <span class="rounded"></span>
           مباشر
-        </button>
-        <button href="/" class="btn" title="أمس">أمس</button>
-        <button href="/" class="btn success" title="اليوم">اليوم</button>
-        <button href="/" class="btn" title="غداّ">غداّ</button>
+        </a>
+        <a href="/" class="btn" title="أمس">أمس</a>
+        <a href="/" class="btn success" title="اليوم">اليوم</a>
+        <a href="/" class="btn" title="غداّ">غداّ</a>
       </div>
 
       <div class="matches-slider">
@@ -781,7 +784,7 @@
         </button>
       </div>
 
-      <button class="btn load-more" title="اظهار كل المباريات">
+      <button class="btn load-more" aria-label="load more" title="اظهار كل المباريات">
         كل المباريات
       </button>
     </section>
@@ -823,6 +826,7 @@
           id="post-news__load-more-btn"
           class="btn load-more"
           title="أخبار الرياضة"
+          aria-label="load more"
         >
           عرض المزيد...
         </button>
