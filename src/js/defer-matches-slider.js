@@ -30,12 +30,12 @@ const matches = [
     match_result: "- : -",
 
     teamA_img: "https://cdn.so3ody.com/scores/teams/50x50/1030.png",
-    teamA_imgAlt: "فريق الزمالك",
+    teamA_imgAlt: "فريق 1",
     teamA_name: "الزمالك",
     teamA_href: "https://www.so3ody.com/Team/1060/الزمالك",
 
     teamB_img: "https://cdn.so3ody.com/scores/teams/50x50/2028.png",
-    teamB_imgAlt: "فريق الشرطة الكيني",
+    teamB_imgAlt: "1",
     teamB_name: "الشرطة الكيني",
     teamB_href: "https://www.so3ody.com/Team/28028/الشرطة-الكيني",
   },
@@ -50,12 +50,12 @@ const matches = [
     match_result: "- : -",
 
     teamA_img: "https://cdn.so3ody.com/scores/teams/50x50/1550.png",
-    teamA_imgAlt: "فريق الزمالك",
+    teamA_imgAlt: "فريق 2",
     teamA_name: "الزمالك",
     teamA_href: "https://www.so3ody.com/Team/1060/الزمالك",
 
     teamB_img: "https://cdn.so3ody.com/scores/teams/50x50/228.png",
-    teamB_imgAlt: "فريق الشرطة الكيني",
+    teamB_imgAlt: "2",
     teamB_name: "الشرطة الكيني",
     teamB_href: "https://www.so3ody.com/Team/28028/الشرطة-الكيني",
   },
@@ -70,12 +70,12 @@ const matches = [
     match_result: "- : -",
 
     teamA_img: "https://cdn.so3ody.com/scores/teams/50x50/1660.png",
-    teamA_imgAlt: "فريق الزمالك",
+    teamA_imgAlt: "فريق 3",
     teamA_name: "الزمالك",
     teamA_href: "https://www.so3ody.com/Team/1060/الزمالك",
 
     teamB_img: "https://cdn.so3ody.com/scores/teams/50x50/2028.png",
-    teamB_imgAlt: "فريق الشرطة الكيني",
+    teamB_imgAlt: "3",
     teamB_name: "الشرطة الكيني",
     teamB_href: "https://www.so3ody.com/Team/28028/الشرطة-الكيني",
   },
@@ -90,12 +90,12 @@ const matches = [
     match_result: "- : -",
 
     teamA_img: "https://cdn.so3ody.com/scores/teams/50x50/1550.png",
-    teamA_imgAlt: "فريق الزمالك",
+    teamA_imgAlt: "فريق 4",
     teamA_name: "الزمالك",
     teamA_href: "https://www.so3ody.com/Team/1060/الزمالك",
 
     teamB_img: "https://cdn.so3ody.com/scores/teams/50x50/20338.png",
-    teamB_imgAlt: "فريق الشرطة الكيني",
+    teamB_imgAlt: "4",
     teamB_name: "الشرطة الكيني",
     teamB_href: "https://www.so3ody.com/Team/28028/الشرطة-الكيني",
   },
@@ -110,12 +110,12 @@ const matches = [
     match_result: "- : -",
 
     teamA_img: "https://cdn.so3ody.com/scores/teams/50x50/1230.png",
-    teamA_imgAlt: "فريق الزمالك",
+    teamA_imgAlt: "فريق 5",
     teamA_name: "عالمين",
     teamA_href: "https://www.so3ody.com/Team/1060/الزمالك",
 
     teamB_img: "https://cdn.so3ody.com/scores/teams/50x50/28.png",
-    teamB_imgAlt: "فريق النجوم",
+    teamB_imgAlt: "5",
     teamB_name: "فريق النجوم",
     teamB_href: "https://www.so3ody.com/Team/28028/الشرطة-الكيني",
   },

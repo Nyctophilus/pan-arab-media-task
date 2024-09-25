@@ -1,6 +1,6 @@
 @use "base";
+@use "abstracts";
 
-@import "abstracts/colors.scss";
 @import "components/buttons.scss";
 @import "layout/header.scss";
 @import "layout/matches-slider.scss";
@@ -8,9 +8,15 @@
 main.container {
   display: flex;
   margin-top: 30px;
+  min-height: 2521px; 
+  flex-direction: column;
 
-  @media screen and (max-width: 1024px) {
-    flex-direction: column;
+  @media screen and (min-width: 960px) {
+    min-height: 1965px; 
+  }
+  @media screen and (min-width: 1025px) {
+    min-height: 1396px; 
+    flex-direction: row;
   }
 
   @import "layout/breadcrumb.scss";

@@ -36,6 +36,7 @@
     box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.04);
     padding: 0 40px;
     width: 90dvw;
+    min-height: 120px;
 
     .slides-holder {
       display: flex;
@@ -175,6 +176,13 @@
   align-items: center;
   justify-content: center;
   background-color: #fff;
+  height: 120px;
+  // The recommended min size for touch targets is typically 44x44 pixels on mobile devices
+  width: 45px;
+
+  @media screen and (min-width: 1024px) {
+    height: 128px;
+  }
 
   &.prev {
     right: 0;
@@ -184,8 +192,6 @@
   }
 
   svg {
-    width: 40px;
-    height: 40px;
     fill: $primary-color-dark;
   }
 

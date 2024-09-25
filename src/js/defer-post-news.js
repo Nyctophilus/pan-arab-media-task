@@ -220,10 +220,12 @@ const news = [
 ];
 
 const newsWrapper = document.querySelector(".news-grid");
+const newsSkeletons = document.querySelectorAll(".news-grid .skeleton");
 const loadMoreBtn = document.getElementById("post-news__load-more-btn");
 let paginationCount = 9,
   currentPage = 1;
 
+createNews(0, paginationCount);
 loadMoreBtn.addEventListener("click", () => {
   currentPage += 1;
 
@@ -240,15 +242,10 @@ loadMoreBtn.addEventListener("click", () => {
   console.log(`currentPage: ${currentPage}`);
 });
 
-createNews(0, paginationCount);
-
-
-
 // clear listeners
 window.addEventListener("beforeunload", () => {
   removeAllListeners(loadMoreBtn, "click");
 });
-
 
 // functions
 function generateNews(title, src, imgAlt, href, tag, views, time) {
@@ -341,12 +338,13 @@ function generateNews(title, src, imgAlt, href, tag, views, time) {
                     title="${imgAlt ?? title}"
                     data-ll-status="loaded"
                     src="${src}"
+                    sizes="(max-width: 640px) 178px, (max-width: 1024px) 300px, (max-width: 1440px) 250px, 450px"
                   />
                 </div>
                 <figcaption>
-                  <p class="post-news__title">
+                  <span class="post-news__title">
                     ${title}
-                  </p>
+                  </span>
                   <div class="post-news__footer">
                     <div class="post-news__tag">
                       ${tag === "انفوجراف" ? graphIcon : greenSvg}
@@ -403,6 +401,7 @@ function createNews(s, e) {
     newsFragment.appendChild(newPiece);
   });
 
+  // replace the placeholder with the news
+  newsSkeletons.forEach((s) => s.remove());
   newsWrapper.appendChild(newsFragment);
-
 }

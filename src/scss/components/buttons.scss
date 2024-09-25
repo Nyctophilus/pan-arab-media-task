@@ -46,6 +46,7 @@
     min-width: 400px;
     height: 45px;
     font-size: 16px;
+    display: inline;
 
     &:hover {
       background-color: #ecc517;
@@ -55,6 +56,7 @@
       max-width: 80dvw;
       min-width: 80dvw;
       height: 35px;
+      margin-top: 10px;
     }
   }
 
